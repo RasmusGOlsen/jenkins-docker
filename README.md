@@ -1,9 +1,6 @@
+# Getting Started
 
-Get plugin versions for `plugin.txt`
+To run this Jenkins server do the following steps.
 
-```groovy
-Jenkins.instance.pluginManager.plugins.each{
-  plugin -> 
-    println ("${plugin.getShortName()}:${plugin.getVersion()}")
-}
-```
+1. Launch the script `docker-run.sh`
+2. Open a web browser and go to http://localhost:8080
