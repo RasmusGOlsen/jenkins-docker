@@ -1,11 +1,19 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:2.414.1
 
 # install rsync
 USER root
-RUN apt-get update -y && apt-get install -y rsync
+RUN apt-get update -y && apt-get install -y \
+    rsync \
+    python3 \
+    python3-pip \
+    python-is-python3
 
-
-# USER jenkins
+RUN pip install --break-system-packages \
+    robotframework \
+    robotframework-pabot \
+    robotframework-lint \
+    tox \
+    flake8
 
 # install plugins
 COPY plugins/plugins.txt /usr/share/jenkins/plugins.txt

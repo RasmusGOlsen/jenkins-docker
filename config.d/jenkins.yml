@@ -1,0 +1,16 @@
+jenkins:
+  securityRealm:
+    local:
+      users:
+       - id: admin
+         password: admin
+jobs:
+  - script: |
+      multibranchPipelineJob('robot-example') {
+          branchSources {
+              git {
+                  id = 'robot-example'
+                  remote('https://github.com/RasmusGOlsen/jenkins-robot-example.git')
+              }
+          }
+      }
